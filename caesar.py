@@ -34,18 +34,34 @@ letters = letter_count(string)
 max_freq= max(letters.values())
 max_letter = [k for k, v in letters.items() if v == max_freq]
 
-print('If the desciphered language is english, usually the sciphertext letter with the greatest frequency will represent the plaintext "e", but if that doesn\'t work other good choices are: "a", "o", and "t".')
-print('Which letter do you want to select as the most frequent in the plaintext? (usually "e", "a", "o" or "t").')
-shift_letter= input()
+print('**************************************************')
+print('If the desciphered language is english, usually the sciphertext letter with the greatest frequency will represent the plaintext "e", but if that doesn\'t work other good choices are: "a", "o", and "t".\n')
+print('Which key letter would you like to select? (usually "e", "a", "o" or "t").')
+print('Or type "done" to quit.')
+shift_letter = ''
+response = ''
+while (True):
+    shift_letter= input()
+    if len(shift_letter) == 1:
+        print('The letter(s) with the greatest frequency are: ')
+        print(*max_letter, sep = ", ")
+        print("Choose one of above most frequent letters:")
 
-print('The letter(s) with the greatest frequency are: ')
-print(max_letter)
-print("Choose one of the above letters to be the key to determine the shift:")
-response = input()
+        response = input()
 
-response = response.lower()
-shift = ord(response) - ord(shift_letter)
-print('plaintext:')
-print(descipher(shift, string))
+        if len(response) == 1:
+            response = response.lower()
+            shift = ord(response) - ord(shift_letter)
+            print('shifted text:')
+            print(descipher(shift, string) + '\n')
+            print('If that worked please enter "done", otherwise enter a new key letter.')
+        elif response == 'done':
+            break
+        else:
+            print('Invalid input.  Please only enter one letter or "done".')
+    elif shift_letter == 'done':
+        break
+    else:
+        print('Invalid input.  Please only enter one letter or "done".')
 
 
