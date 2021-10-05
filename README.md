@@ -3,3 +3,7 @@
 > -- Wikipedia
 
 This is a console application I made in Python for fun.  The program checks a string of text for the most common letter(s) and then asks the user to supply which character they think the most common character represents.  (In english, this is usually e.)  Then the program uses the supplied character as a key to shift he input string and if the key was correct, will display the plaintext version of the string.
+
+## Example Scipher:
+>Plaintext:  THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+>Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
